@@ -1,0 +1,95 @@
+Tp_ctx_set_pri(ctx):
+####################################
+Used to set private data to ctx.
+####################################
+
+
+Tp_ctx_get_pri(ctx):
+####################################
+Used to get private data from ctx.
+####################################
+
+
+Tp_get_cert_dir(ctx):
+####################################
+0 for server's Certificate and 1 for client's certificate
+####################################
+
+
+Tp_get_cert_level(ctx):
+####################################
+Starting from 0, determining the order of current certificate.
+####################################
+
+
+Tp_set_clnt_sni_cb(ctx, ...):
+####################################
+Server Name in packet ClientHello  
+####################################
+
+
+Tp_set_clnt_ver_cb(ctx, ...):
+####################################
+TLS version(inner) in packet ClientHello  
+####################################
+
+
+Tp_set_clnt_ciph_cb(ctx, ...):
+####################################
+All cipher suits in ClientHello 
+####################################
+
+
+Tp_set_clnt_id_cb(ctx, ...):
+####################################
+SessionID in ClientHello
+####################################
+
+
+Tp_set_srv_ver_cb(ctx, ...):
+####################################
+TLS version(inner) in ServerHello
+ 
+tips: For TLS 1.3, the function you set may be called twice, first 
+the inner Version(TLS1.2) will be as the parameter and the second the 
+version in extension will be as the parameter.
+####################################
+
+ 
+Tp_set_srv_id_cb(ctx, ...):
+####################################
+SessionID in ServerHello
+####################################
+
+
+Tp_set_srv_ciph_cb(ctx, ...):
+####################################
+Chooesed cipher suit in ServerHello
+####################################
+
+
+Tp_set_cert_raw_cb(ctx, ...):
+####################################  
+Each certificate in Certificate chain(order)
+
+Tips: The parameter is the binary certificate, you can use it to do your 
+own work.Using Tp_get_cert_level and Tp_get_cert_dir to get the level of 
+current certificate in the chain and the direction of current certif-
+icate(client or server).
+####################################
+
+
+####################################
+The following interface is used to get the detail information about the 
+certificate. 
+Tp_set_cert_cn_cb(ctx, ...)  
+Tp_set_cert_country_cb(ctx, ...)  
+Tp_set_cert_local_cb(ctx, ...)  
+Tp_set_cert_prov_cb(ctx, ...)  
+Tp_set_cert_org_cb(ctx, ...)  
+Tp_set_cert_orgunit_cb(ctx, ...)  
+Tp_set_cert_email_cb(ctx, ...)  
+Tp_set_cert_serial_cb(ctx, ...)  
+Tp_set_cert_sigalg_cb(ctx, ...)  
+Tp_set_cert_pkeyalg_cb(ctx, ...)  
+####################################
