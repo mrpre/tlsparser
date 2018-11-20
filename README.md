@@ -1,4 +1,4 @@
-# tlspraser
+# tlsparser
 
 ## Introduction
 A tinny TLS parser written by C without any dependency.   
@@ -20,8 +20,6 @@ For kernelspace usage, using `make` to build tlsparser.ko. (see `https://github.
 #### Common usage
   
 `
-    #include "xxxx/tp.h"
-
     /*create ctx*/
     Tp_ctx_t *ctx = Tp_ctx_new();
 
@@ -39,8 +37,9 @@ For kernelspace usage, using `make` to build tlsparser.ko. (see `https://github.
     Tp_parse(ctx, $TLSDATA2, $TLSDATA1_LEN2);
     ......
     Tp_ctx_free(ctx);
-`
-For more detail, see `daemon.c`.  
+`  
+
+See `daemon.c` for more usage.  
 
 ## Interface  
 More instructions about interface are in the `interface.txt`  
